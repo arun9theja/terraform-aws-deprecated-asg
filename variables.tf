@@ -55,3 +55,7 @@ variable "instance-monitoring" {
 variable "instance-ebs-optimized" {
     default = true
 }
+
+variable "instance-additional-user-data" {
+    default = ""
+}

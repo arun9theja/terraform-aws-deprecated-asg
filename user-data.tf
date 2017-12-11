@@ -14,4 +14,8 @@ data "template_cloudinit_config" "config" {
         content_type = "text/cloud-config"
         content      = "${data.template_file.init.rendered}"
     }
+    part {
+        content_type = "text/cloud-config"
+        content      = "${var.instance-additional-user-data}"
+    }
 }
