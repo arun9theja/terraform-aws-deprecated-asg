@@ -26,47 +26,21 @@ module "autoscaling-deployment" {
 ```
 
 ## Conventions
- - The created pipeline name will be `${var.service-name}-bake-ami`
- - The pipeline source zip is an S3 object that should be located in `{var.service-s3-bucket}/${var.service-name}-bake-ami/${var.service-name}.zip`
- - The codepipeline IAM role name will be `CodePipelineBakeAmi-${var.service-name}`
- - The codepipeline IAM role inline policy name will be:
-    - `CodePipelineBakeAmi-${var.service-name}-S3`
- - The created build project name will be ${var.service-name}-bake-ami
- - The codebuild IAM role name will be `CodeBuildBakeAmi-${var.service-name}`
- - The codebuild IAM role inline policy name will be:
-    - `CodeBuildBakeAmi-${var.service-name}-S3`
-    - `CodeBuildBakeAmi-${var.service-name}-cloudwatch`
-    - `CodeBuildBakeAmi-${var.service-name}-packer`
- - The build project environment image is `aws/codebuild/java:openjdk-8`
- - The build project will be tagged:
-    - "Service" = "${var.service-name}"
-    - "ProductDomain" = "${var.product-domain}"
-    - "Environment" = "management"
- - The build project will have permission to Run Instances:
-    - having these tags on creation:
-      - "Name" = "Packer Builder"
-      - "Service" = "${var.service-name}"
-      - "ServiceVersion" = any
-      - "Cluster" = "${var.service-name}-app"
-      - "ProductDomain" = "${var.product-domain}"
-      - "Environment" = "management"
-      - "Application" = any
-      - "Description" = any
-    - with a volume having these tags on creation:
-      - "ProductDomain" = "${var.product-domain}"
-      - "Environment" = "management"
-    - creates images and snapshots having these tags:
-      - "Service" = "${var.service-name}"
-      - "ServiceVersion" = any
-      - "ProductDomain" = "${var.product-domain}"
-      - "Application" = any
-      - "SourceAmi" = any
-
-
+The created ASG will have these tags:
+  - Service
+  - ServiceVersion
+  - Cluster
+  - Environment
+  - ProductDomain
+  - Description
+  - Application
+  - SourceAMI
+  - AMI
+  - AppBuildTime
+  - AmiBakeTime
 
 ## Authors
-
- - [Salvian Reynaldi](https://github.com/salvianreynaldi)
+  - [Salvian Reynaldi](https://github.com/salvianreynaldi)
 
 
 ## License
