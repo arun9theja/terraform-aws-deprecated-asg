@@ -5,7 +5,7 @@ resource "aws_launch_configuration" "app" {
   iam_instance_profile = "${var.instance-profile}"
   # we can't use data.aws_security_group.app.*.id here. (Another bug)?
   security_groups = "${var.instance-sgs}"
-  user_data = "${data.template_cloudinit_config.config.rendered}"
+  user_data = "${var.instance-user-data}"
   enable_monitoring = "${var.instance-monitoring}"
   ebs_optimized = "${var.instance-ebs-optimized}"
 

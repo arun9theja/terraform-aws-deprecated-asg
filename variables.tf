@@ -82,7 +82,7 @@ variable "instance-ebs-optimized" {
     description = "the created ASGs will spawn EBS-optimized instances if enabled"
 }
 
-variable "instance-additional-user-data" {
+variable "instance-user-data" {
     default = ""
-    description = "the created ASGs will spawn instances if enabled"
+    description = "The user data to launch instances with. Use the value of data.template_cloudinit_config.rendered" // https://www.terraform.io/docs/providers/template/d/cloudinit_config.html#rendered
 }
