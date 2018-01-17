@@ -4,3 +4,7 @@
 output "asg-desired-capacity" {
   value = "${aws_autoscaling_group.app.desired_capacity}"
 }
+
+output "asg-name" {
+  value = "${aws_autoscaling_group.app.name}"
+}
