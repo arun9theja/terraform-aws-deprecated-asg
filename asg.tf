@@ -53,13 +53,13 @@ resource "aws_autoscaling_group" "app" {
   }
 
   tag {
-    key                 = "SourceAMI"
+    key                 = "SourceAmiId"
     value               = "${data.aws_ami.app.tags.SourceAmi}"
     propagate_at_launch = true
   }
 
   tag {
-    key                 = "AMI"
+    key                 = "AmiId"
     value               = "${data.aws_ami.app.id}"
     propagate_at_launch = false
   }
