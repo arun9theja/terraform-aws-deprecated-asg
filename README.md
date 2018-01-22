@@ -34,8 +34,8 @@ The created ASG will have these tags:
   - ProductDomain
   - Description
   - Application
-  - SourceAMI
-  - AMI
+  - BaseAmiId
+  - AmiId
   - AppBuildTime
   - AmiBakeTime
 
