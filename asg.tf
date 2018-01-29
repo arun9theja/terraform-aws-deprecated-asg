@@ -54,7 +54,7 @@ resource "aws_autoscaling_group" "app" {
 
   tag {
     key                 = "BaseAmiId"
-    value               = "${data.aws_ami.app.tags.SourceAmi}"
+    value               = "${data.aws_ami.app.tags.BaseAmiId}"
     propagate_at_launch = true
   }
 
