@@ -52,6 +52,11 @@ variable "asg-health-check-type" {
     description = "the created ASGs will honor this healthcheck result"
 }
 
+variable "asg-ignore-changes" {
+    default = []
+    description = "the created ASGs will ignore these attribute changes"
+}
+
 variable "instance-sgs" {
     type = "list"
     description = "the created ASGs will spawn instances with these security groups"
