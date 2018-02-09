@@ -30,16 +30,6 @@ The deployed AMIs should have these tags:
   - Application
   - ServiceVersion
   - BaseAmiId
-The created ASGs will have these tags:
-  - Service
-  - ServiceVersion
-  - Cluster
-  - Environment
-  - ProductDomain
-  - Description
-  - Application
-  - BaseAmiId
-  - AmiId
 
 ## Authors
   - [Salvian Reynaldi](https://github.com/salvianreynaldi)

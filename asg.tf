@@ -11,41 +11,7 @@ resource "aws_autoscaling_group" "app" {
   launch_configuration      = "${aws_launch_configuration.app.name}"
   target_group_arns         = ["${var.asg-lb-target_group-arn}"]
 
-  tag {
-    key                 = "Cluster"
-    value               = "${var.service-name}-app"
-    propagate_at_launch = true
-  }
-  
-  tag {
-    key                 = "Service"
-    value               = "${var.service-name}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "Description"
-    value               = "This instance is running the ${var.service-name} service"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "Environment"
-    value               = "${var.environment}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "ProductDomain"
-    value               = "${var.product-domain}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "AmiId"
-    value               = "${var.instance-ami-id}"
-    propagate_at_launch = false
-  }
+  tags = ["${var.tags}"]
 
   lifecycle {
     create_before_destroy = true
