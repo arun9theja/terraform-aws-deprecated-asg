@@ -49,7 +49,13 @@ variable "asg-wait-timeout" {
 variable "asg-health-check-type" {
     type = "string"
     default = "ELB"
-    description = "the created ASGs will honor this healthcheck result"
+    description = "controls how ASG health checking is done"
+}
+
+variable "asg-health-check-grace-period" {
+    type = "string"
+    default = "300"
+    description = "Time, in seconds, to wait for new instances before checking their health"
 }
 
 variable "instance-sgs" {
