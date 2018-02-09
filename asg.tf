@@ -18,13 +18,13 @@ resource "aws_autoscaling_group" "app" {
 
   tag {
     key                 = "Cluster"
-    value               = "${data.aws_ami.app.tags.Service}-app"
+    value               = "${var.service-name}-app"
     propagate_at_launch = true
   }
   
   tag {
     key                 = "Service"
-    value               = "${data.aws_ami.app.tags.Service}"
+    value               = "${var.service-name}"
     propagate_at_launch = true
   }
 
@@ -36,7 +36,7 @@ resource "aws_autoscaling_group" "app" {
 
   tag {
     key                 = "Description"
-    value               = "This instance is running the ${data.aws_ami.app.tags.Service} service"
+    value               = "This instance is running the ${var.service-name} service"
     propagate_at_launch = true
   }
 
@@ -48,7 +48,7 @@ resource "aws_autoscaling_group" "app" {
 
   tag {
     key                 = "ProductDomain"
-    value               = "${data.aws_ami.app.tags.ProductDomain}"
+    value               = "${var.product-domain}"
     propagate_at_launch = true
   }
 
@@ -63,19 +63,6 @@ resource "aws_autoscaling_group" "app" {
     value               = "${data.aws_ami.app.id}"
     propagate_at_launch = false
   }
-
-  tag {
-    key                 = "AppBuildTime"
-    value               = "${data.aws_ami.app.tags.AppBuildTime}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "AmiBakeTime"
-    value               = "${data.aws_ami.app.tags.AmiBakeTime}"
-    propagate_at_launch = true
-  }
-
 
   lifecycle {
     create_before_destroy = true

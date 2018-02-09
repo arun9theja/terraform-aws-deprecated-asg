@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "app" {
-  name_prefix   = "${data.aws_ami.app.tags.Service}-app-${data.aws_ami.app.tags.ServiceVersion}-${var.environment}-"
+  name_prefix   = "${var.service-name}-app-${data.aws_ami.app.tags.ServiceVersion}-${var.environment}-"
   image_id      = "${data.aws_ami.app.id}"
   instance_type = "${var.instance-type}"
   iam_instance_profile = "${var.instance-profile}"

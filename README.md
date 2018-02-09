@@ -26,7 +26,11 @@ module "autoscaling-deployment" {
 ```
 
 ## Conventions
-The created ASG will have these tags:
+The deployed AMIs should have these tags:
+  - Application
+  - ServiceVersion
+  - BaseAmiId
+The created ASGs will have these tags:
   - Service
   - ServiceVersion
   - Cluster
@@ -36,8 +40,6 @@ The created ASG will have these tags:
   - Application
   - BaseAmiId
   - AmiId
-  - AppBuildTime
-  - AmiBakeTime
 
 ## Authors
   - [Salvian Reynaldi](https://github.com/salvianreynaldi)
