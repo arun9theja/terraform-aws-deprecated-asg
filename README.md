@@ -29,7 +29,6 @@ module "autoscaling-deployment" {
 The deployed AMIs should have these tags:
   - Application
   - ServiceVersion
-  - BaseAmiId
 The created ASGs will have these tags:
   - Service
   - ServiceVersion

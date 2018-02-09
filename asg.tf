@@ -29,12 +29,6 @@ resource "aws_autoscaling_group" "app" {
   }
 
   tag {
-    key                 = "ServiceVersion"
-    value               = "${data.aws_ami.app.tags.ServiceVersion}"
-    propagate_at_launch = true
-  }
-
-  tag {
     key                 = "Description"
     value               = "This instance is running the ${var.service-name} service"
     propagate_at_launch = true
@@ -50,18 +44,6 @@ resource "aws_autoscaling_group" "app" {
     key                 = "ProductDomain"
     value               = "${var.product-domain}"
     propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "BaseAmiId"
-    value               = "${data.aws_ami.app.tags.BaseAmiId}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "AmiId"
-    value               = "${data.aws_ami.app.id}"
-    propagate_at_launch = false
   }
 
   lifecycle {
