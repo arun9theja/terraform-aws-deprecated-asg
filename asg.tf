@@ -12,12 +12,6 @@ resource "aws_autoscaling_group" "app" {
   target_group_arns         = ["${var.asg-lb-target_group-arn}"]
 
   tag {
-    key                 = "Application"
-    value               = "${data.aws_ami.app.tags.Application}"
-    propagate_at_launch = true
-  }
-
-  tag {
     key                 = "Cluster"
     value               = "${var.service-name}-app"
     propagate_at_launch = true
@@ -26,12 +20,6 @@ resource "aws_autoscaling_group" "app" {
   tag {
     key                 = "Service"
     value               = "${var.service-name}"
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = "ServiceVersion"
-    value               = "${data.aws_ami.app.tags.ServiceVersion}"
     propagate_at_launch = true
   }
 
@@ -54,14 +42,8 @@ resource "aws_autoscaling_group" "app" {
   }
 
   tag {
-    key                 = "BaseAmiId"
-    value               = "${data.aws_ami.app.tags.BaseAmiId}"
-    propagate_at_launch = true
-  }
-
-  tag {
     key                 = "AmiId"
-    value               = "${data.aws_ami.app.id}"
+    value               = "${var.instance-ami-id}"
     propagate_at_launch = false
   }
 
