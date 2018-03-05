@@ -9,8 +9,6 @@ module "autoscaling-deployment" {
     source = "github.com/traveloka/traveloka-terraform-aws-asg?ref=master"
     service-name = "traveloka-flight"
     environment = "staging"
-    traveloka-env = "my_staging"
-    product-domain = "flight-team"
     asg-lb-target_group-arn = "arn:aws:elasticloadbalancing:ap-southeast-1:0123456789012:targetgroup/traveloka-flight-app-internal/afjwkllgjepwoej"
     # this variable should default to a number (e.g. 1) as a fallback. This can also be populated from the blue (currently live) ASG by using this module's `asg-desired-capacity` output as the input variable
     asg-desired-capacity = "${var.asg-desired-capacity}"
