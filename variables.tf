@@ -58,6 +58,11 @@ variable "asg-health-check-grace-period" {
     description = "Time, in seconds, to wait for new instances before checking their health"
 }
 
+variable "tags" {
+    default = []
+    description = "the created ASGs will have these tags"
+}
+
 variable "instance-sgs" {
     type = "list"
     description = "the created instances will spawn instances with these security groups"
@@ -75,22 +80,22 @@ variable "instance-key-name" {
 
 variable "instance-type" {
     type = "string"
-    description = "the created ASGs will spawn instances with this type"
+    description = "the created instances will spawn instances with this type"
 }
 
 variable "instance-ami-id" {
     type = "string"
-    description = "the created ASGs will spawn instances with this AMI"
+    description = "the created instances will spawn instances with this AMI"
 }
 
 variable "instance-monitoring" {
     default = true
-    description = "the created ASGs will spawn instances with enhanced monitoring if enabled"
+    description = "the created instances will spawn instances with enhanced monitoring if enabled"
 }
 
 variable "instance-ebs-optimized" {
     default = true
-    description = "the created ASGs will spawn EBS-optimized instances if enabled"
+    description = "the created instances will spawn EBS-optimized instances if enabled"
 }
 
 variable "instance-user-data" {
