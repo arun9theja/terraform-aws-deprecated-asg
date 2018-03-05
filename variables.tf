@@ -58,7 +58,7 @@ variable "asg-health-check-grace-period" {
     description = "Time, in seconds, to wait for new instances before checking their health"
 }
 
-variable "tags" {
+variable "asg-tags" {
     default = []
     description = "the created ASGs will have these tags"
 }

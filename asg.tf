@@ -10,8 +10,9 @@ resource "aws_autoscaling_group" "app" {
   vpc_zone_identifier       = "${var.asg-vpc-zone-identifier}"
   launch_configuration      = "${aws_launch_configuration.app.name}"
   target_group_arns         = ["${var.asg-lb-target_group-arn}"]
-
-  tags = ["${var.tags}"]
+  tags = [
+    "${var.asg-tags}"
+  ]
 
   lifecycle {
     create_before_destroy = true
