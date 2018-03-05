@@ -60,12 +60,17 @@ variable "asg-health-check-grace-period" {
 
 variable "instance-sgs" {
     type = "list"
-    description = "the created ASGs will spawn instances with these security groups"
+    description = "the created instances will spawn instances with these security groups"
 }
 
 variable "instance-profile" {
     type = "string"
-    description = "the created ASGs will spawn instances with this instance profile"
+    description = "the created instances will spawn instances with this IAM profile"
+}
+
+variable "instance-key-name" {
+    default = ""
+    description = "the created instances will spawn instances with this SSH key name"
 }
 
 variable "instance-type" {
