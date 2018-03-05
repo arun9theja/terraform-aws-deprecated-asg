@@ -3,14 +3,6 @@ variable "service-name" {
   description = "the name of the service"
 }
 
-variable "product-domain" {
-  type    = "string"
-  description = "the owner of this pipeline (e.g. team). This is used mostly for adding tags to resources"
-}
-
-variable "traveloka-env" {
-}
-
 variable "environment" {
   type    = "string"
   description = "the created resources will belong to this infrastructure environment"
