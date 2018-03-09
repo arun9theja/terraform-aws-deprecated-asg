@@ -73,6 +73,11 @@ variable "instance-type" {
     description = "the created ASGs will spawn instances with this type"
 }
 
+variable "instance-key-name" {
+    type = "string"
+    description = "the created instances will allow access with this ssh key"
+}
+
 variable "instance-ami-id" {
     type = "string"
     description = "the created ASGs will spawn instances with this AMI"
