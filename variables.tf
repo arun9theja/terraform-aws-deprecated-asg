@@ -74,7 +74,7 @@ variable "instance-type" {
 }
 
 variable "instance-key-name" {
-    type = "string"
+    default = ""
     description = "the created instances will allow access with this ssh key"
 }
 
