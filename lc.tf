@@ -4,7 +4,7 @@ resource "aws_launch_configuration" "app" {
   instance_type = "${var.instance-type}"
   iam_instance_profile = "${var.instance-profile}"
   key_name = "${var.instance-key-name}"
-  security_groups = "${var.instance-sgs}"
+  security_groups = ["${var.instance-sgs}"]
   user_data = "${var.instance-user-data}"
   enable_monitoring = "${var.instance-monitoring}"
   ebs_optimized = "${var.instance-ebs-optimized}"
