@@ -2,7 +2,6 @@
 A Terraform module which creates an AWS EC2 Launch Configuration, and EC2 Auto Scaling Groups.
 This modules can be used to do blue/green auto scaling deployment
 
-
 ## Usage
 ```hcl
 module "autoscaling-deployment" {
@@ -24,14 +23,10 @@ module "autoscaling-deployment" {
 ```
 
 ## Conventions
-The deployed AMIs should have these tags:
-  - Application
-  - ServiceVersion
-  - BaseAmiId
+
 
 ## Authors
   - [Salvian Reynaldi](https://github.com/salvianreynaldi)
-
 
 ## License
 
